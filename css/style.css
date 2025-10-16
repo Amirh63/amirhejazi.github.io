@@ -1,0 +1,314 @@
+section{
+		font-family: 'Droid Sans', sans-serif; 
+		 }
+
+/**************************************************
+*					navigation bar
+***************************************************/
+/*Main Level*/
+div.headtxtalign{
+	text-align: center;
+}
+
+nav {
+	width: 90%;
+	margin: 2px auto;
+	border: 2px solid #222;
+	background-color: #111;
+	background-image: linear-gradient(#444, #111);
+	border-radius: 30px;
+	box-shadow: 0px 1px 1px #777;
+	z-index: 10;
+
+}
+/*mini reset*/
+nav ul{
+	margin: 0px auto; 
+	padding: 0px;
+	list-style: none;
+	text-align: center;
+	display: inline-block;
+	position: relative;
+}
+
+
+/*clear floats*/
+nav:before,
+nav:after{
+	content: "";
+	display: table;
+}
+nav:after{
+	clear:both;
+}
+nav{
+
+	zoom: 1;
+}
+nav ul li {
+	float: left;
+	border-right: 1px solid #222;
+	border-left: 1px solid #222;
+	box-shadow: 1px 0 0 #444;
+	position: relative;
+	z-index: 2;
+
+}
+nav ul li a{
+	float: left;
+	padding: 8px 9px;
+	color: #999;
+	text-transform: uppercase;
+	font: bold 12px arial, Helvetica;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #000;
+}
+nav ul li:hover > a{
+	color: #fafafa; 
+} 
+*html nav ul li a:hover{
+	color: #fafafa;
+}
+/***************************************************************
+							General 
+****************************************************************/
+
+h5{
+	color: #000000;
+	word-spacing: 0px;
+	line-height: 0px;
+	text-align: justify;
+	padding-left: 20%; 
+	padding-right: 20%;
+	font-size: 120%; 
+	font-weight: bold;
+	font-family: "Times New Roman", Times, serif;
+}
+h4{
+	color: #000000;
+	word-spacing: 0px;
+	line-height: 0px;
+	text-align: justify;
+	padding-left: 20%; 
+	padding-right: 20%;
+	font-size: 110%;
+	font-weight: bold;
+	font-family: "Times New Roman", Times, serif;
+}
+p{
+	color: #000000;
+	word-spacing: 0px;
+	line-height: 1.4em;
+	text-align: justify;
+	padding-left: 20%; 
+	padding-right: 20%;
+	font-size: 110%;
+	font-family: "Times New Roman", Times, serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+	background-color: #E6E6EF;
+	margin: 0px auto;
+    min-height: 100%;
+    position: relative;
+}
+
+body:after {
+    content: '';
+    display: block;
+    height: 100px;
+}
+#bottomMenuInfo{
+	text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    height: 100px;
+    text-align: center;
+    word-spacing: 10px;
+    font-size: 100%;
+    padding-bottom: 0px auto;
+    padding-top: 0px auto;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+/***************************************************************
+							HOME 
+****************************************************************/
+img.home_img{
+	width: 50%;
+	height: auto;
+	display: block;
+	margin: 0px auto;
+}
+#bio{
+	text-align: center;
+	padding-left: 15%; 
+	padding-right: 15%;
+	font-size: 200%;
+	font-weight: bold;
+	font-family: "Times New Roman", Times, serif;
+}
+#home_text{
+	text-align: center;
+}
+/***************************************************************
+							ABOUT 
+****************************************************************/
+img.myimg{
+	width: 35%;
+	height: auto;
+	display: block;
+	margin: 0px auto;
+}
+/***************************************************************
+							RESUME 
+****************************************************************/
+.resume_img{
+	width: 70%;
+	height: auto;
+	display: block;
+	margin: 0px auto;
+	z-index: 10;
+}
+p.resume_text{
+	text-align: left;
+	padding-left: 10%;
+}
+/***************************************************************
+							Thesis 
+****************************************************************/
+object{
+	width: 70%;
+	height: 1000px;
+	display: block;
+	margin: 0px auto;
+	z-index: 10px;
+}
+
+#thesis_text{
+	text-align: left;
+	padding-left: 10%; 
+}
+
+/***************************************************************
+							Project 
+****************************************************************/
+iframe.center{
+
+	padding-left: 15%;
+}
+img.pulse-small{
+	display: inline-block;
+	margin: 0px auto;
+	width: 80%;
+	height: auto;
+}
+img.pll{
+	display: inline-block;
+	margin: 0px auto;
+	width: 80%;
+	height: auto;
+}
+img.TF{
+	display: inline-block;
+	margin: 0px auto;
+	width: 40%;
+	height: auto
+
+}
+img.parameters{
+	display: inline-block;
+	margin: 0px auto;
+	width: 15%;
+	height: auto
+}
+img.inputoutputsig{
+	display: inline-block;
+	margin: 0px auto;
+	width: 70%;
+	height: auto
+}
+img.phase{
+	display: inline-block;
+	margin: 0px auto;
+	width: 70%;
+	height: auto
+}
+img.normaldist{
+	display: inline-block;
+	margin: 0px auto;
+	width: 70%;
+	height: auto
+}
+img.pressuredrop{
+	display: inline-block;
+	margin: 0px auto;
+	width: 70%;
+	height: auto
+}
+img.set1{
+	display: inline-block;
+	margin: 0px auto;
+	width: 70%;
+	height: auto
+}
+img.set2{
+	display: inline-block;
+	margin: 0px auto;
+	width: 60%;
+	height: auto
+}
+img.set3{
+	display: inline-block;
+	margin: 0px auto;
+	width: 50%;
+	height: auto
+}
+img.set4{
+	display: inline-block;
+	margin: 0px auto;
+	width: 40%;
+	height: auto
+}
+img.set5{
+	display: inline-block;
+	margin: 0px auto;
+	width: 30%;
+	height: auto
+}
+
+
+/***************************************************************
+							REFERENCES 
+****************************************************************/
+img.refer_img{
+	width: 50%;
+	padding-bottom: 1%;
+	height: auto;
+	display: block;
+	margin: 0px auto;
+}
+/***************************************************************
+							CONTACT 
+****************************************************************/
+img.contact_img{
+	width: 40%;
+	padding-bottom: 1%;
+	height: auto;
+	display: block;
+	margin: 0px auto;
+}
+#contact_text1{
+	text-align: center;
+	line-height: 20px;
+}
+#contact_text2{
+	text-align: center;
+	font-weight: bold;
+	line-height: 1px;
+}
