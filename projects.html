@@ -46,7 +46,9 @@
 		#spn10{
 			display: none;
 		}
-
+		#spn11{
+			display: none;
+		}
 
 	</style>
 
@@ -135,6 +137,15 @@
 		    }
 		}
 		
+		function Function11() {
+		    var x = document.getElementById("spn11");
+		    if ( x.style.display === "inline") {
+		    	x.style.display = "none";
+		    }else{
+		    	x.style.display = "inline";
+		    }
+		}
+
 	</script>
 
     <style type="text/css">
@@ -161,9 +172,35 @@
 
 <body>
 	
+	<div >
+		<H5>Design Verification Test Automation:</H5>
+		<p>
+            Developed and automated test configurations to validate Tibit/Ciena MicroPlug OLT/ONU modules (10G SFP+
+            transceivers) across optical, electrical, traffic, and environmental conditions within controlled thermal 
+            chambers for C-Temp, E-Temp, and I-Temp ranges. Built Python drivers leveraging I2C, UART, and Ethernet 
+            protocols to interface with measurement instruments, enabling automated testing and reliable data acquisition.
+            <span id="spn11">
+            Built and maintained end-to-end test stations using optical power meters, optical variable attenuators, 
+            optical switches, optical wavelength meter, 2x4 PLC optical splitter, an optical add-drop multiplexer,
+            Keysight Digital Communication Analyzer, Keysight power supplies, and Teledyne network traffic analyzer to
+            measure DUT performance with accuracy and repeatability. Designed and executed verification test-steps in
+            Python covering extinction ratio, optical output power, cross-point, jitter, mask margin, receiver sensitivity,
+            RSSI behavior, power consumption, and traffic performance. Wrote and implemented a Python-based automated 
+            test using an MVC architecture: the model encapsulated test steps, test harness, state machine, netlist, 
+            and data processing; the view provided a GUI to display results, temperature corners, and step status; the 
+            controller handled user inputs, arranged test sequencing, and updated the view. Created post-processing 
+            pipelines to generate per-module CSV reports; summarized findings for customers and informed data-sheet 
+            specifications for new MicroPlug designs. Improved measurement consistency, reduced manual rework, and
+            increased qualification throughput.
+			<br>
+			</span>
+			<button onclick="Function11()">Read More</button>
+		</p>	
+	</div>
 	
 
 	<div >
+		<hr width="60%" size="2px" noshade="noshade">
 		<H5> Weather Prediction With Machine Learning:</H5>
 		<p>
              For this project, I used a machine-learning algorithm to predict the maximum temperature for the city of Santa Rosa, CA. The goal here was to familiarize myself with machine learning algorithms and understand how this can be applied to real-world engineering applications. The Gated Recurrent Units (GRU) algorithm was used for this project. This is a type of deep neural network algorithm. Neural network algorithms are inspired by the structure of the human brain. <span id="spn10">The neural network is a system that takes the training dataset and then tries to train itself to understand the patterns in data. Furthermore, the trained neural network is used to predict outputs for a new set of similar data. The neural networks are made up of layers of neurons. These neurons are the core processing units of the network. The first layer is the input layer which receives the input data, the output layer predicts the final output data, in between the input and output layers are the hidden layers that perform the computation requirements for the network.
@@ -369,14 +406,11 @@
 		    <a href="https://github.com/Amirh63/gru_model_weather_prediction" target="_blank">Source Code</a>
 
 			<br>
-			<br>
 			</span>
-			<button onclick="Function10()">Read More/Less</button>
+			<button onclick="Function10()">Read More</button>
 		</p>	
 	</div>
-	
-	
-	
+		
 	
 	
 	
@@ -384,7 +418,16 @@
 		<hr width="60%" size="2px" noshade="noshade">
 		<H5>Water Impedance Test Stand:</H5>
 		<p>
-			I was assigned to develop an improved water impedance test stand in order to measure the pressure drop for the unit under test. The process consisted of finding the test equipment (such as: flow meter, pressure transducer, water pump, etc.) with required specifications. I assembled and tested the hardware as well as wrote a program in C# that automated the test station. <span id="spn9">The test stand was optimized in the software and the hardware resulting in more accurate and precise measurements. I created a user friendly GUI for the test stand so that the technicians and operators could easily utilize the test stand. During the creation of the test stand empirical data was collected and analyzed. The data analyses consisted of a correlational test (linear regression analysis in Minitab) and repeatability test. The results rendered indicated that the new test stand had superior performance in hardware and software functionality. The equation below depicts how the pressure drop was calculated: 
+			I was assigned to develop an improved water impedance test stand in order to measure the pressure drop for
+            the unit under test. The process consisted of finding the test equipment (such as: flow meter, pressure 
+            transducer, water pump, etc.) with required specifications. I assembled and tested the hardware as well 
+            as wrote a program in C# that automated the test station. <span id="spn9">The test stand was optimized in 
+            the software and the hardware resulting in more accurate and precise measurements. I created a user 
+            friendly GUI for the test stand so that the technicians and operators could easily utilize the test stand.
+            During the creation of the test stand empirical data was collected and analyzed. The data analyses 
+            consisted of a correlational test (linear regression analysis in Minitab) and repeatability test. 
+            The results rendered indicated that the new test stand had superior performance in hardware and software 
+            functionality. The equation below depicts how the pressure drop was calculated: 
 			<br>
 			<br> 
 			<img src="images/projects/waterimpedanceteststand/pressuredropequation.png" alt="pressure drop equation" class="pressuredrop">
@@ -406,10 +449,9 @@
 				<img src="http://latex.codecogs.com/gif.latex? Impedance = \frac{Pressure Drop(PSI)} {Flow Rate (mL/min)}" border="0"/> <br>
 			<br>
 			</span>
-			<button onclick="Function9()">Read More/Less</button>
+			<button onclick="Function9()">Read More</button>
 		</p>	
 	</div>
-
 
 	<div >
 		<hr width="60%" size="2px" noshade="noshade">
@@ -418,7 +460,7 @@
 			Tasked with developing automation diagnostic tools to test the DELL servers on a system level. The process consisted of writing the test in C# by converting some of the frameworks and libraries from Python. By developing the automation test in the C# environment, the test structure, re-usability, efficiency, and reliability was improved. <span id="spn1"> I maintained, updated/modified, and reviewed the automation test scripts written in Python to test the functionalities of the DELL server systems that were in production. The automation test was API (Application Programming Interface) driven due to its stability and short release cycles and fast feedback loops. Converting the Python code to C# improved the overall test robustness. Furthermore, we ran the test scripts on a Cumulus network environment in order to test the UUT (Unit Under Test). Since the Cumulus network is based on a .Net framework, writing the automation test in C# improved the testing time by a large margin. During this process we used Mercurial as a source control in order to maintain, modify and update the scripts.
 			<br>
 			</span>
-			<button onclick="Function1()">Read More/Less</button>
+			<button onclick="Function1()">Read More</button>
 		</p>	
 	</div>
 
@@ -484,7 +526,7 @@
 					<a href="/programs/python/pll.py">Click here to download the source code in Python</a>
 				<br>
 			</span>
-			<button onclick="Function2()">Read More/Less</button>
+			<button onclick="Function2()">Read More</button>
 		</p>
 
 	</div>
@@ -499,7 +541,7 @@
 			<img src="images/projects/mismatch.png" alt="impedance mismatch" class="pressuredrop">
 			<br>   
 			</span>
-			<button onclick="Function3()">Read More/Less</button>
+			<button onclick="Function3()">Read More</button>
 		</p>	
 	</div>
 	
@@ -534,7 +576,7 @@
 			<br>
 			</span>
 	
-			<button onclick="Function4()">Read More/Less</button>
+			<button onclick="Function4()">Read More</button>
 		</p>
 	</div>
 
@@ -568,7 +610,7 @@
 			<i><b>Pulse Waveform</b></i>	
 			<br>		
 			</span>
-			<button onclick="Function5()">Read More/Less</button>
+			<button onclick="Function5()">Read More</button>
 		</p>
 	</div>
 		
@@ -601,7 +643,7 @@
 			<br>	
 
 			</span>
-			<button onclick="Function6()">Read More/Less</button>
+			<button onclick="Function6()">Read More</button>
 		</p>
 	</div>
 
@@ -619,7 +661,7 @@
 			<iframe class="center" width="60%" height="420" src="https://www.youtube.com/embed/BGulR3Zlg6w" frameborder="0" allowfullscreen></iframe>
 			<br>
 			</span>
-			<button onclick="Function7()">Read More/Less</button>	
+			<button onclick="Function7()">Read More</button>	
 
 		</p>
 	</div>
@@ -656,7 +698,7 @@
 				<a href="programs/cpp/gameoflife.zip">Source Code</a>
 			</br>
 			</span>
-			<button onclick="Function8()">Read More/Less</button>	
+			<button onclick="Function8()">Read More</button>	
 		</p>
 	</div>
 
