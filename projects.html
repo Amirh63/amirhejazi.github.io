@@ -212,20 +212,20 @@
           <br>
           where,
           <br>
-          <img src="https://latex.codecogs.com/gif.latex?h_t" alt="h_t" />
+          <img src="https://latex.codecogs.com/svg.latex?h_t" alt="h_t" />
           is hidden layer vectors,<br>
-          <img src="https://latex.codecogs.com/gif.latex?x_t" alt="x_t" />
+          <img src="https://latex.codecogs.com/svg.latex?x_t" alt="x_t" />
           is the input vector,<br>
-          <img src="https://latex.codecogs.com/gif.latex?b_z,b_r,b_h" alt="bias vectors" />
+          <img src="https://latex.codecogs.com/svg.latex?b_z,b_r,b_h" alt="bias vectors" />
           are bias vectors for update gate, reset gate and hidden layers, <br>
-          <img src="https://latex.codecogs.com/gif.latex?W_z,W_r,W_h" alt="weight matrices" />
+          <img src="https://latex.codecogs.com/svg.latex?W_z,W_r,W_h" alt="weight matrices" />
           are the weight matrix for update gate, reset gate and hidden layers, <br>
-          <img src="https://latex.codecogs.com/gif.latex?\sigma,\tanh" alt="activation functions" />
+          <img src="https://latex.codecogs.com/svg.latex?\sigma,\tanh" alt="activation functions" />
           are activation functions. <br>
           <br>
-          The update gate (<img src="https://latex.codecogs.com/gif.latex?z_t" alt="z_t" />)
+          The update gate (<img src="https://latex.codecogs.com/svg.latex?z_t" alt="z_t" />)
           deciphers what information to throw away and what new information to add. The reset gate (<img
-            src="https://latex.codecogs.com/gif.latex?r_t" alt="r_t" />)
+            src="https://latex.codecogs.com/svg.latex?r_t" alt="r_t" />)
           is used to decide how much past information to forget. Now let’s look at the python code for this project. I
           broke down the code into different segments to better understand the process.
           <br><br>
@@ -293,7 +293,7 @@
           The GRU model takes 3-dimensional input data. The input data needs to be in the format defined below for the
           model to accept the input data.
           <br><br>
-          <img src="https://latex.codecogs.com/gif.latex?input(Sample,Time-Step,Features)" alt="input shape" />
+          <img src="https://latex.codecogs.com/svg.latex?input(Sample,Time-Step,Features)" alt="input shape" />
           <br><br>
           The model will use the number of the previous time-step to make a prediction. In this case, time-step/window
           equals 181 days. This means that the model makes predictions based on the last 181-days data. Feature defines
@@ -388,15 +388,15 @@
           <i><b>Pressure Drop Equation</b></i>
           <br><br>
           where, <br>
-          <img src="https://latex.codecogs.com/gif.latex?Q" alt="Q" /> is the flow rate <br>
-          <img src="https://latex.codecogs.com/gif.latex?D" alt="D" /> is the piple/tube inner diameter <br>
-          <img src="https://latex.codecogs.com/gif.latex?L" alt="L" /> is the piple/tube length <br>
-          <img src="https://latex.codecogs.com/gif.latex?\mu" alt="mu" /> is the dynamic viscosity <br>
-          <img src="https://latex.codecogs.com/gif.latex?P_1-P_2" alt="P1-P2" /> is the pressure drop <br>
+          <img src="https://latex.codecogs.com/svg.latex?Q" alt="Q" /> is the flow rate <br>
+          <img src="https://latex.codecogs.com/svg.latex?D" alt="D" /> is the piple/tube inner diameter <br>
+          <img src="https://latex.codecogs.com/svg.latex?L" alt="L" /> is the piple/tube length <br>
+          <img src="https://latex.codecogs.com/svg.latex?\mu" alt="mu" /> is the dynamic viscosity <br>
+          <img src="https://latex.codecogs.com/svg.latex?P_1-P_2" alt="P1-P2" /> is the pressure drop <br>
           <br>
           Furthermore, the impedance is calculated based on the measured pressure drop and the flow rate as shown below:
           <br><br>
-          <img src="https://latex.codecogs.com/gif.latex?Impedance=\frac{Pressure\ Drop(PSI)}{Flow\ Rate\ (mL/min)}"
+          <img src="https://latex.codecogs.com/svg.latex?Impedance=\frac{Pressure\ Drop(PSI)}{Flow\ Rate\ (mL/min)}"
             alt="impedance formula" />
           <br>
         </span>
@@ -461,13 +461,13 @@
           <img src="images/pll/param.png" alt="Z TF parameters" class="parameters">
           <br><br>
           where, <br>
-          <img src="https://latex.codecogs.com/gif.latex?w_n" alt="wn" /> is the bandwidth of the loop filter <br>
-          <img src="https://latex.codecogs.com/gif.latex?\theta_n" alt="theta_n" /> is the digital undamped natural
+          <img src="https://latex.codecogs.com/svg.latex?w_n" alt="wn" /> is the bandwidth of the loop filter <br>
+          <img src="https://latex.codecogs.com/svg.latex?\theta_n" alt="theta_n" /> is the digital undamped natural
           frequency <br>
-          <img src="https://latex.codecogs.com/gif.latex?K_p" alt="Kp" /> is the proportional loop filter gain <br>
-          <img src="https://latex.codecogs.com/gif.latex?K_i" alt="Ki" /> is the integral loop filter gain <br>
-          <img src="https://latex.codecogs.com/gif.latex?\zeta" alt="zeta" /> is the loop filter damping factor
-          (typically <img src="https://latex.codecogs.com/gif.latex?\zeta=0.707" alt="zeta value" />)
+          <img src="https://latex.codecogs.com/svg.latex?K_p" alt="Kp" /> is the proportional loop filter gain <br>
+          <img src="https://latex.codecogs.com/svg.latex?K_i" alt="Ki" /> is the integral loop filter gain <br>
+          <img src="https://latex.codecogs.com/svg.latex?\zeta" alt="zeta" /> is the loop filter damping factor
+          (typically <img src="https://latex.codecogs.com/svg.latex?\zeta=0.707" alt="zeta value" />)
           <br><br>
           The first plot shows a comparison of the real and imaginary parts of the input signal versus the output
           signal. In Fig.1, the phase of the output signal is locked to the phase of the input signal after
