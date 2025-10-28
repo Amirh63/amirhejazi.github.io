@@ -182,8 +182,7 @@ p {
 
 h5 {
   word-spacing: 0;
-  line-height: 0.5;
-  /* line-height: 1.2; */
+  line-height: 1.2;
   text-align: justify;
   font-size: 1.2rem;
   font-weight: bold;
