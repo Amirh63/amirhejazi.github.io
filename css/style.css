@@ -1,314 +1,523 @@
-section{
-		font-family: 'Droid Sans', sans-serif; 
-		 }
+/* ============================================================
+   Global design tokens (CSS variables)
+   ============================================================ */
+:root {
+  --font-sans: 'Droid Sans', Arial, Helvetica, sans-serif;
+  --font-serif: "Times New Roman", Times, serif;
 
-/**************************************************
-*					navigation bar
-***************************************************/
-/*Main Level*/
-div.headtxtalign{
-	text-align: center;
+  --text-color: #000;
+  --bg-color: #E6E6EF;
+
+  --content-max: 72rem;
+  /* max readable width for content sections */
+  --container-max: 64rem;
+  /* cap width for the top nav's black area */
+  --container-pad: 1rem;
+  /* default horizontal padding */
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+
+  --nav-bg: #111;
+  --nav-bg-top: #444;
+  --nav-border: #222;
+  --nav-text: #999;
+  --nav-radius: 1.5rem;
+  --nav-shadow: 0px 1px 1px #777;
+
+  /* --bottom-bar-height: 56px; */
+  --bottom-bar-height: 36px;
+  /* height of the fixed bottom nav */
 }
 
-nav {
-	width: 90%;
-	margin: 2px auto;
-	border: 2px solid #222;
-	background-color: #111;
-	background-image: linear-gradient(#444, #111);
-	border-radius: 30px;
-	box-shadow: 0px 1px 1px #777;
-	z-index: 10;
-
-}
-/*mini reset*/
-nav ul{
-	margin: 0px auto; 
-	padding: 0px;
-	list-style: none;
-	text-align: center;
-	display: inline-block;
-	position: relative;
+/* Token tweaks by breakpoint (reused below) */
+@media (max-width: 900px) {
+  :root {
+    --container-pad: .875rem;
+    --nav-radius: 1rem;
+  }
 }
 
+@media (max-width: 600px) {
+  :root {
+    --container-pad: .75rem;
+    --space-2: .875rem;
+    --nav-radius: .75rem;
+  }
+}
 
-/*clear floats*/
-nav:before,
-nav:after{
-	content: "";
-	display: table;
-}
-nav:after{
-	clear:both;
-}
-nav{
-
-	zoom: 1;
-}
-nav ul li {
-	float: left;
-	border-right: 1px solid #222;
-	border-left: 1px solid #222;
-	box-shadow: 1px 0 0 #444;
-	position: relative;
-	z-index: 2;
-
-}
-nav ul li a{
-	float: left;
-	padding: 8px 9px;
-	color: #999;
-	text-transform: uppercase;
-	font: bold 12px arial, Helvetica;
-	text-decoration: none;
-	text-shadow: 0 1px 0 #000;
-}
-nav ul li:hover > a{
-	color: #fafafa; 
-} 
-*html nav ul li a:hover{
-	color: #fafafa;
-}
-/***************************************************************
-							General 
-****************************************************************/
-
-h5{
-	color: #000000;
-	word-spacing: 0px;
-	line-height: 0px;
-	text-align: justify;
-	padding-left: 20%; 
-	padding-right: 20%;
-	font-size: 120%; 
-	font-weight: bold;
-	font-family: "Times New Roman", Times, serif;
-}
-h4{
-	color: #000000;
-	word-spacing: 0px;
-	line-height: 0px;
-	text-align: justify;
-	padding-left: 20%; 
-	padding-right: 20%;
-	font-size: 110%;
-	font-weight: bold;
-	font-family: "Times New Roman", Times, serif;
-}
-p{
-	color: #000000;
-	word-spacing: 0px;
-	line-height: 1.4em;
-	text-align: justify;
-	padding-left: 20%; 
-	padding-right: 20%;
-	font-size: 110%;
-	font-family: "Times New Roman", Times, serif;
+/* ============================================================
+   Base / Resets
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-	background-color: #E6E6EF;
-	margin: 0px auto;
-    min-height: 100%;
-    position: relative;
+  margin: 0;
+  min-height: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-serif);
+  line-height: 1.5;
+
+  /* Reserve space so the fixed footer never covers content */
+  padding-bottom: calc(var(--bottom-bar-height) + env(safe-area-inset-bottom, 0px));
 }
 
-body:after {
-    content: '';
-    display: block;
-    height: 100px;
+/* Layout container for top sections */
+header.headtxtalign,
+/* The configuration below for the 'main' is effecting the size of the image. */
+main,
+body>div {
+  max-width: var(--content-max);
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+  margin-left: auto;
+  margin-right: auto;
 }
-#bottomMenuInfo{
-	text-decoration: none;
-    position: absolute;
-    bottom: 0;
+
+/* Fluid media */
+img,
+video,
+svg,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+iframe,
+object,
+embed {
+  max-width: 100%;
+}
+
+/* Keep your original section font if used */
+section {
+  font-family: var(--font-sans);
+}
+
+/* ============================================================
+   TOP NAVIGATION (narrower black area, centered)
+   ============================================================ */
+.headtxtalign {
+  text-align: center;
+}
+
+/* Use class="topnav" on the <nav> in the header */
+.topnav {
+  /* original look preserved */
+  border: 1px solid var(--nav-border);
+  background-color: var(--nav-bg);
+  background-image: linear-gradient(var(--nav-bg-top), var(--nav-bg));
+  border-radius: var(--nav-radius);
+  box-shadow: var(--nav-shadow);
+  z-index: 10;
+
+  /* width change: narrower, centered black bar */
+  width: min(var(--container-max), 88vw);
+  margin: 4px auto;
+  padding: 0.5px;
+}
+
+/* Flex menu that wraps neatly on small screens */
+.topnav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .25rem;
+}
+
+.topnav li {
+  list-style: none;
+}
+
+.topnav a {
+  display: block;
+  /* padding: 8px 10px; */
+  /* min-height: 44px; */
+  padding: 8px 6px;
+  min-height: 30px;
+  /* comfortable tap target */
+  color: var(--nav-text);
+  text-transform: uppercase;
+  font: bold 12px/1 var(--font-sans);
+  text-decoration: none;
+  text-shadow: 0 1px 0 #000;
+  border-radius: .5rem;
+}
+
+.topnav a:hover,
+.topnav a:focus-visible {
+  color: #fafafa;
+  outline: 2px solid #fafafa;
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   GENERAL TYPOGRAPHY (remove heavy side padding on mobile)
+   ============================================================ */
+h4,
+h5,
+p {
+  color: var(--text-color);
+  padding-left: 0;
+  padding-right: 0;
+  /* max-width: 65ch; */
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-inline: var(--container-pad);
+}
+
+h5 {
+  word-spacing: 0;
+  line-height: 0.5;
+  /* line-height: 1.2; */
+  text-align: justify;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: var(--font-serif);
+}
+
+h4 {
+  word-spacing: 0;
+  line-height: 1.2;
+  text-align: justify;
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: var(--font-serif);
+}
+
+p {
+  word-spacing: 0;
+  line-height: 1.5;
+  text-align: justify;
+  font-size: 1.1rem;
+  font-family: var(--font-serif);
+}
+
+/* ============================================================
+   FIXED BOTTOM NAVIGATION (always at viewport bottom)
+   ============================================================ */
+#bottomMenuInfo {
+  position: fixed;
+  /* key: stick to viewport */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* anchor to bottom edge */
+  z-index: 1000;
+  /* keep above content */
+  height: var(--bottom-bar-height);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  /* iOS safe area */
+  background: rgba(250, 250, 250, 0.95);
+  border-top: 1px solid #bbb;
+  backdrop-filter: saturate(140%) blur(4px);
+  /* graceful no-op if unsupported */
+
+  text-align: center;
+  /* fallback alignment if .bottom-inner fails */
+}
+
+/* Inner flex wrapper: centers and wraps links */
+#bottomMenuInfo .bottom-inner {
+  max-width: var(--container-max);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+#bottomMenuInfo a {
+  color: #2a2a2a;
+  text-decoration: none;
+  padding: .25rem .5rem;
+  line-height: 1;
+}
+
+#bottomMenuInfo a:hover,
+#bottomMenuInfo a:focus {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   HOME
+   ============================================================ */
+img.home_img {
+  width: 70%;
+  height: auto;
+  display: block;
+  margin: 0px auto;
+}
+
+#bio {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: var(--font-serif);
+}
+
+#home_text {
+  text-align: center;
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+img.myimg {
+  width: 35%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   RESUME
+   ============================================================ */
+.resume_img {
+  width: 70%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+.resume_text {
+  text-align: left;
+  padding-left: 12%;
+}
+
+/* ============================================================
+   THESIS
+   ============================================================ */
+object {
+  width: 75%;
+  height: 80vh;
+  /* responsive height instead of fixed 1000px */
+  display: block;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+#thesis_text {
+  text-align: left;
+  padding-left: 10%;
+}
+
+/* ============================================================
+   PROJECT
+   ============================================================ */
+iframe.center {
+  text-align: center;
+  width: 80%;
+  height: 35vh;
+  padding-left: 15%;
+  padding-bottom: 1%;
+  /* prevent horizontal overflow on small screens */
+  display: block;
+}
+
+img.pulse-small,
+img.pll,
+img.TF,
+img.parameters,
+img.inputoutputsig,
+img.phase,
+img.normaldist,
+img.pressuredrop,
+img.set1,
+img.set2,
+img.set3,
+img.set4,
+img.set5,
+img.refer_img,
+img.contact_img {
+  display: inline-block;
+  margin: 0 auto;
+  height: auto;
+}
+
+/* keep intended widths on larger screens */
+img.pulse-small,
+img.pll,
+img.inputoutputsig,
+img.phase,
+img.normaldist,
+img.pressuredrop,
+img.set1 {
+  width: 70%;
+}
+
+img.TF {
+  width: 40%;
+}
+
+img.parameters {
+  width: 15%;
+}
+
+img.set2 {
+  width: 60%;
+}
+
+img.set3 {
+  width: 50%;
+}
+
+img.set4 {
+  width: 40%;
+}
+
+img.set5 {
+  width: 30%;
+}
+
+img.refer_img {
+  width: 60%;
+  padding-bottom: 1%;
+  height: auto;
+  /* padding-left: 20%; */
+
+}
+
+img.contact_img {
+  width: 40%;
+  padding-bottom: 1%;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+p.contact_text {
+  text-align: center;
+}
+
+/* ============================================================
+   BREAKPOINTS
+   ============================================================ */
+
+/* ≤ 900px: tablets and small laptops */
+@media (max-width: 900px) {
+
+  .topnav {
+    /* still centered, just a touch roomier on tablets */
+    width: min(var(--container-max), 88vw);
+  }
+
+  .topnav ul {
+    gap: .25rem;
+  }
+
+  .topnav a {
+    /* padding: .6rem .8rem; */
+    /* font-size: .85rem; */
+    padding: .5rem .4rem;
+    font-size: .70rem;
+  }
+
+  img.home_img {
+    width: 70%;
+    height: auto;
+  }
+
+  img.myimg {
+    width: 50%;
+  }
+
+  .resume_img {
+    width: 85%;
+  }
+
+  object {
     width: 90%;
-    height: 100px;
+    height: 65vh;
+  }
+
+  /* slightly relax justification on medium screens */
+  p,
+  h4,
+  h5 {
+    text-align: left;
+  }
+}
+
+/* ≤ 600px: phones */
+@media (max-width: 600px) {
+
+  /* Stack or wrap top nav items comfortably */
+  .topnav {
+    width: min(48rem, 88vw);
+  }
+
+  .topnav ul {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .topnav a {
     text-align: center;
-    word-spacing: 10px;
-    font-size: 100%;
-    padding-bottom: 0px auto;
-    padding-top: 0px auto;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-/***************************************************************
-							HOME 
-****************************************************************/
-img.home_img{
-	width: 50%;
-	height: auto;
-	display: block;
-	margin: 0px auto;
-}
-#bio{
-	text-align: center;
-	padding-left: 15%; 
-	padding-right: 15%;
-	font-size: 200%;
-	font-weight: bold;
-	font-family: "Times New Roman", Times, serif;
-}
-#home_text{
-	text-align: center;
-}
-/***************************************************************
-							ABOUT 
-****************************************************************/
-img.myimg{
-	width: 35%;
-	height: auto;
-	display: block;
-	margin: 0px auto;
-}
-/***************************************************************
-							RESUME 
-****************************************************************/
-.resume_img{
-	width: 70%;
-	height: auto;
-	display: block;
-	margin: 0px auto;
-	z-index: 10;
-}
-p.resume_text{
-	text-align: left;
-	padding-left: 10%;
-}
-/***************************************************************
-							Thesis 
-****************************************************************/
-object{
-	width: 70%;
-	height: 1000px;
-	display: block;
-	margin: 0px auto;
-	z-index: 10px;
-}
+    /* font-size: .95rem; */
+    /* padding: .875rem 1rem; */
+    font-size: 0.75rem;
+    padding: 0.5rem 0.6rem;
+  }
 
-#thesis_text{
-	text-align: left;
-	padding-left: 10%; 
-}
+  /* Type scale */
+  #bio {
+    font-size: 1.5rem;
+  }
 
-/***************************************************************
-							Project 
-****************************************************************/
-iframe.center{
+  p {
+    font-size: 1rem;
+  }
 
-	padding-left: 15%;
-}
-img.pulse-small{
-	display: inline-block;
-	margin: 0px auto;
-	width: 80%;
-	height: auto;
-}
-img.pll{
-	display: inline-block;
-	margin: 0px auto;
-	width: 80%;
-	height: auto;
-}
-img.TF{
-	display: inline-block;
-	margin: 0px auto;
-	width: 40%;
-	height: auto
+  /* Full-width images on phones */
+  img.home_img,
+  img.myimg,
+  .resume_img,
+  img.contact_img {
+    width: 100%;
+    height: auto;
+  }
 
-}
-img.parameters{
-	display: inline-block;
-	margin: 0px auto;
-	width: 15%;
-	height: auto
-}
-img.inputoutputsig{
-	display: inline-block;
-	margin: 0px auto;
-	width: 70%;
-	height: auto
-}
-img.phase{
-	display: inline-block;
-	margin: 0px auto;
-	width: 70%;
-	height: auto
-}
-img.normaldist{
-	display: inline-block;
-	margin: 0px auto;
-	width: 70%;
-	height: auto
-}
-img.pressuredrop{
-	display: inline-block;
-	margin: 0px auto;
-	width: 70%;
-	height: auto
-}
-img.set1{
-	display: inline-block;
-	margin: 0px auto;
-	width: 70%;
-	height: auto
-}
-img.set2{
-	display: inline-block;
-	margin: 0px auto;
-	width: 60%;
-	height: auto
-}
-img.set3{
-	display: inline-block;
-	margin: 0px auto;
-	width: 50%;
-	height: auto
-}
-img.set4{
-	display: inline-block;
-	margin: 0px auto;
-	width: 40%;
-	height: auto
-}
-img.set5{
-	display: inline-block;
-	margin: 0px auto;
-	width: 30%;
-	height: auto
-}
+  img.refer_img {
+    width: 60%;
+    height: auto;
+    /* padding-left: 20%; */
+  }
 
+  /* Make previously tiny images more legible on phones */
+  img.TF,
+  img.parameters,
+  img.set4,
+  img.set5 {
+    width: 80%;
+  }
 
-/***************************************************************
-							REFERENCES 
-****************************************************************/
-img.refer_img{
-	width: 50%;
-	padding-bottom: 1%;
-	height: auto;
-	display: block;
-	margin: 0px auto;
-}
-/***************************************************************
-							CONTACT 
-****************************************************************/
-img.contact_img{
-	width: 40%;
-	padding-bottom: 1%;
-	height: auto;
-	display: block;
-	margin: 0px auto;
-}
-#contact_text1{
-	text-align: center;
-	line-height: 20px;
-}
-#contact_text2{
-	text-align: center;
-	font-weight: bold;
-	line-height: 1px;
+  object {
+    width: 100%;
+    height: 60vh;
+  }
+
+  /* footer link spacing a bit tighter on small screens */
+  #bottomMenuInfo .bottom-inner {
+    gap: .75rem;
+  }
 }
