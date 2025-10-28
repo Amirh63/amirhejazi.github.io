@@ -84,7 +84,11 @@ body>div {
 }
 
 /* Fluid media */
-img,
+img {
+  max-width: 100%;
+  height: auot;
+}
+
 video,
 svg,
 canvas {
@@ -492,7 +496,7 @@ p.contact_text {
   img.myimg,
   .resume_img,
   img.contact_img {
-    width: 100%;
+    width: 40%;
     height: auto;
   }
 
@@ -503,8 +507,14 @@ p.contact_text {
   }
 
   /* Make previously tiny images more legible on phones */
-  img.TF,
-  img.parameters,
+  img.parameters {
+    width: 30%
+  }
+
+  img.TF {
+    width: 60%;
+  }
+
   img.set4,
   img.set5 {
     width: 80%;
