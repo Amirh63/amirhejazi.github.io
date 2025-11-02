@@ -244,15 +244,19 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  /* gap: 1.0rem; */
+  gap: 0.8rem;
   flex-wrap: wrap;
 }
 
 #bottomMenuInfo a {
   color: #2a2a2a;
   text-decoration: none;
-  padding: .25rem .5rem;
-  line-height: 1;
+  /* padding: .25rem .25rem; */
+  padding: .25rem .05rem;
+  /* top, right, bottom, left */
+  line-height: 1.4;
+  /* line-height: 1; */
 }
 
 #bottomMenuInfo a:hover,
@@ -264,7 +268,7 @@ p {
    HOME
    ============================================================ */
 img.home_img {
-  width: 70%;
+  width: 60%;
   height: auto;
   display: block;
   margin: 0px auto;
@@ -295,7 +299,7 @@ img.myimg {
    RESUME
    ============================================================ */
 .resume_img {
-  width: 70%;
+  width: 73%;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -369,11 +373,11 @@ img.set1 {
 }
 
 img.TF {
-  width: 40%;
+  width: 30%;
 }
 
 img.parameters {
-  width: 15%;
+  width: 10%;
 }
 
 img.set2 {
@@ -392,8 +396,13 @@ img.set5 {
   width: 30%;
 }
 
-img.refer_img {
-  width: 60%;
+img.set6 {
+  width: 45%;
+}
+
+
+.refer_img {
+  width: 45%;
   padding-bottom: 1%;
   height: auto;
   /* padding-left: 20%; */
@@ -419,6 +428,9 @@ p.contact_text {
 /* ≤ 900px: tablets and small laptops */
 @media (max-width: 900px) {
 
+  /*===============================
+   Top NAVIGATION 
+  ===============================*/
   .topnav {
     /* still centered, just a touch roomier on tablets */
     width: min(var(--container-max), 88vw);
@@ -445,7 +457,7 @@ p.contact_text {
   }
 
   .resume_img {
-    width: 85%;
+    width: 73%;
   }
 
   object {
@@ -492,32 +504,70 @@ p.contact_text {
   }
 
   /* Full-width images on phones */
-  img.home_img,
   img.myimg,
-  .resume_img,
   img.contact_img {
-    width: 40%;
+    /* width: 40%; */
+    width: 70%;
+    height: auto;
+  }
+
+  img.home_img {
+    width: 85%;
+    height: auto;
+  }
+
+  .resume_img {
+    /* width: 40%; */
+    width: 73%;
     height: auto;
   }
 
   img.refer_img {
-    width: 60%;
+    width: 70%;
     height: auto;
     /* padding-left: 20%; */
   }
 
-  /* Make previously tiny images more legible on phones */
-  img.parameters {
-    width: 30%
+
+  /*===============================
+   PROJECT
+  ==============================*/
+
+  img.set2 {
+    width: 90%;
   }
 
-  img.TF {
-    width: 60%;
+  img.set3 {
+    width: 75%;
   }
 
   img.set4,
+  img.set6 {
+    width: 70%;
+  }
+
   img.set5 {
+    width: 50%;
+  }
+
+  img.pressuredrop {
+    width: 90%;
+  }
+
+  img.pll {
     width: 80%;
+  }
+
+  img.TF {
+    width: 50%;
+  }
+
+  img.parameters {
+    width: 20%
+  }
+
+  img.pulse-small {
+    width: 95%;
   }
 
   object {
@@ -525,8 +575,12 @@ p.contact_text {
     height: 60vh;
   }
 
+  /*===============================
+   FIXED BOTTOM NAVIGATION 
+  ===============================*/
   /* footer link spacing a bit tighter on small screens */
   #bottomMenuInfo .bottom-inner {
-    gap: .75rem;
+    /* gap: .75rem; */
+    gap: .55rem;
   }
 }
