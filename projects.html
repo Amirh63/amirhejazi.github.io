@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <link rel="icon" type="image/png" href="images/icones/projects_icon.png" />
-  <script type="text/javascript" src="https://codecogs.unisa.ac.za/latexit.js"></script>
+  <!-- <script type="text/javascript" src="https://codecogs.unisa.ac.za/latexit.js"></script> -->
 
   <style type="text/css">
     #spn1 {
@@ -212,20 +212,90 @@
           <br>
           where,
           <br>
-          <img src="https://latex.codecogs.com/svg.latex?h_t" alt="h_t" /> is hidden layer vectors,<br>
-          <img src="https://latex.codecogs.com/svg.latex?x_t" alt="x_t" />
-          is the input vector,<br>
-          <img src="https://latex.codecogs.com/svg.latex?b_z,b_r,b_h" alt="bias vectors" />
+          <!-- For fastest and simplest runtime: MathML (XML-based markup language for encoding math) is directly used in HTML.   -->
+          <!-- h_t -->
+          <math>
+            <msub>
+              <mi>h</mi>
+              <mi>t</mi>
+            </msub>
+          </math> is hidden layer vectors,<br>
+
+          <!-- x_t -->
+          <math>
+            <msub>
+              <mi>x</mi>
+              <mi>t</mi>
+            </msub>
+          </math> is the input vector,<br>
+
+          <!-- b_z, b_r, b_h -->
+          <math>
+            <mrow>
+              <msub>
+                <mi>b</mi>
+                <mi>z</mi>
+              </msub>
+              <mo>,</mo>
+              <msub>
+                <mi>b</mi>
+                <mi>r</mi>
+              </msub>
+              <mo>,</mo>
+              <msub>
+                <mi>b</mi>
+                <mi>h</mi>
+              </msub>
+            </mrow>
+          </math>
           are bias vectors for update gate, reset gate and hidden layers, <br>
-          <img src="https://latex.codecogs.com/svg.latex?W_z,W_r,W_h" alt="weight matrices" />
+
+          <!-- W_z, W_r, W_h -->
+          <math>
+            <mrow>
+              <msub>
+                <mi>W</mi>
+                <mi>z</mi>
+              </msub>
+              <mo>,</mo>
+              <msub>
+                <mi>W</mi>
+                <mi>r</mi>
+              </msub>
+              <mo>,</mo>
+              <msub>
+                <mi>W</mi>
+                <mi>h</mi>
+              </msub>
+            </mrow>
+          </math>
           are the weight matrix for update gate, reset gate and hidden layers, <br>
-          <img src="https://latex.codecogs.com/svg.latex?\sigma,\tanh" alt="activation functions" />
-          are activation functions. <br>
-          <br>
-          The update gate (<img src="https://latex.codecogs.com/svg.latex?z_t" alt="z_t" />)
-          deciphers what information to throw away and what new information to add. The reset gate (<img
-            src="https://latex.codecogs.com/svg.latex?r_t" alt="r_t" />)
-          is used to decide how much past information to forget. Now let’s look at the python code for this project. I
+          <!-- sigma, tanh -->
+          <math>
+            <mrow>
+              <mi>σ</mi>
+              <mo>,</mo>
+              <mi>tanh</mi>
+            </mrow>
+          </math> are activation functions.
+          <br><br>
+
+          The update gate (
+          <math>
+            <msub>
+              <mi>z</mi>
+              <mi>t</mi>
+            </msub>
+          </math>
+          ) deciphers what information to throw away and what new information to add. The reset gate (
+          <math>
+            <msub>
+              <mi>r</mi>
+              <mi>t</mi>
+            </msub>
+          </math>
+
+          ) is used to decide how much past information to forget. Now let’s look at the python code for this project. I
           broke down the code into different segments to better understand the process.
           <br><br>
           <b>Dataset:</b>
@@ -292,7 +362,16 @@
           The GRU model takes 3-dimensional input data. The input data needs to be in the format defined below for the
           model to accept the input data.
           <br><br>
-          <img src="https://latex.codecogs.com/svg.latex?input(Sample,Time\_Step,Features)" alt="input shape" />
+
+          <math>
+            <mrow>
+              <mi>input</mi>
+              <mo>(</mo>
+              <mtext>Sample, Time_Step, Features</mtext>
+              <mo>)</mo>
+            </mrow>
+          </math>
+
           <br><br>
           The model will use the number of the previous time-step to make a prediction. In this case, time-step/window
           equals 181 days. This means that the model makes predictions based on the last 181-days data. Feature defines
@@ -387,16 +466,56 @@
           <i><b>Pressure Drop Equation</b></i>
           <br><br>
           where, <br>
-          <img src="https://latex.codecogs.com/svg.latex?Q" alt="Q" /> is the flow rate <br>
-          <img src="https://latex.codecogs.com/svg.latex?D" alt="D" /> is the piple/tube inner diameter <br>
-          <img src="https://latex.codecogs.com/svg.latex?L" alt="L" /> is the piple/tube length <br>
-          <img src="https://latex.codecogs.com/svg.latex?\mu" alt="mu" /> is the dynamic viscosity <br>
-          <img src="https://latex.codecogs.com/svg.latex?P_1-P_2" alt="P1-P2" /> is the pressure drop <br>
+          <!-- Q -->
+          <math>
+            <mi>Q</mi>
+          </math> is the flow rate <br>
+
+          <!-- D -->
+          <math>
+            <mi>D</mi>
+          </math> is the pipe/tube inner diameter <br>
+
+          <!-- L -->
+          <math>
+            <mi>L</mi>
+          </math> is the pipe/tube length <br>
+
+          <!-- mu -->
+          <math>
+            <mi>μ</mi>
+          </math> is the dynamic viscosity <br>
+
+          <!-- P1 - P2 -->
+          <math>
+            <mrow>
+              <msub>
+                <mi>P</mi>
+                <mn>1</mn>
+              </msub>
+              <mo>−</mo>
+              <msub>
+                <mi>P</mi>
+                <mn>2</mn>
+              </msub>
+            </mrow>
+          </math>
+          is the pressure drop <br>
+
           <br>
           Furthermore, the impedance is calculated based on the measured pressure drop and the flow rate as shown below:
           <br><br>
-          <img src="https://latex.codecogs.com/svg.latex?Impedance=\frac{Pressure\ Drop(PSI)}{Flow\ Rate\ (mL/min)}"
-            alt="impedance formula" />
+          <!-- Impedance = Pressure Drop / Flow Rate -->
+          <math>
+            <mrow>
+              <mi>Impedance</mi>
+              <mo>=</mo>
+              <mfrac>
+                <mtext>Pressure Drop (PSI)</mtext>
+                <mtext>Flow Rate (mL/min)</mtext>
+              </mfrac>
+            </mrow>
+          </math>
           <br>
         </span>
         <button onclick="Function9(this)">More</button>
@@ -460,13 +579,51 @@
           <img src="images/pll/param.png" alt="Z TF parameters" class="parameters">
           <br><br>
           where, <br>
-          <img src="https://latex.codecogs.com/svg.latex?w_n" alt="wn" /> is the bandwidth of the loop filter <br>
-          <img src="https://latex.codecogs.com/svg.latex?\theta_n" alt="theta_n" /> is the digital undamped natural
-          frequency <br>
-          <img src="https://latex.codecogs.com/svg.latex?K_p" alt="Kp" /> is the proportional loop filter gain <br>
-          <img src="https://latex.codecogs.com/svg.latex?K_i" alt="Ki" /> is the integral loop filter gain <br>
-          <img src="https://latex.codecogs.com/svg.latex?\zeta" alt="zeta" /> is the loop filter damping factor
-          (typically <img src="https://latex.codecogs.com/svg.latex?\zeta=0.707" alt="zeta value" />)
+
+          <!-- w_n -->
+          <math>
+            <msub>
+              <mi>w</mi>
+              <mi>n</mi>
+            </msub>
+          </math> is the bandwidth of the loop filter <br>
+
+          <!-- theta_n -->
+          <math>
+            <msub>
+              <mi>θ</mi>
+              <mi>n</mi>
+            </msub>
+          </math> is the digital undamped natural frequency <br>
+
+          <!-- K_p -->
+          <math>
+            <msub>
+              <mi>K</mi>
+              <mi>p</mi>
+            </msub>
+          </math> is the proportional loop filter gain <br>
+
+          <!-- K_i -->
+          <math>
+            <msub>
+              <mi>K</mi>
+              <mi>i</mi>
+            </msub>
+          </math> is the integral loop filter gain <br>
+
+          <!-- zeta and zeta = 0.707 -->
+          <math>
+            <mi>ζ</mi>
+          </math> is the loop filter damping factor
+          (typically <math>
+            <mrow>
+              <mi>ζ</mi>
+              <mo>=</mo>
+              <mn>0.707</mn>
+            </mrow>
+          </math>)
+
           <br><br>
           The first plot shows a comparison of the real and imaginary parts of the input signal versus the output
           signal. In Fig.1, the phase of the output signal is locked to the phase of the input signal after

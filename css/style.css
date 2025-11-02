@@ -581,6 +581,6 @@ p.contact_text {
   /* footer link spacing a bit tighter on small screens */
   #bottomMenuInfo .bottom-inner {
     /* gap: .75rem; */
-    gap: .30rem;
+    gap: .20rem;
   }
 }
